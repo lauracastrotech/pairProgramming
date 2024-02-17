@@ -5,7 +5,7 @@
 const studentGrades = {
     studentA: {
         'name' : "Orlane",
-        'grade' : 95,
+        // 'grade' : 95,
         'courses' : {
             'JavaScript': 98,
             'CSS': 95,
@@ -14,7 +14,7 @@ const studentGrades = {
         },
     studentB: {
         'name' : "Clio",
-        'grade' : 90,
+        // 'grade' : 90,
         'courses' : {
             'Python': 81,
             'PHP': 80,
@@ -22,8 +22,8 @@ const studentGrades = {
         'passing' : false
     },
     studentC: {
-        'name' : "Orlane",
-        'grade' : 65,
+        'name' : "Laura",
+        // 'grade' : 65,
         'courses' : {
             'SQL': 87, 
             'MongoDB': 78,
@@ -33,23 +33,28 @@ const studentGrades = {
 };
 
 const averageGrade = (allStudentsObj) => {
-    console.log(78);
+    let averageGradeObj = {};
     for(let student in allStudentsObj){
         let numOfCourses = 0;
         let gradeTotal = 0;
-        // console.log(typeof allStudentsObj[student]);
+        let averageGrade = 0;
+        let studentName = allStudentsObj[student].name;
+ 
         for(let studentInfo in allStudentsObj[student]){
-            // console.log(student[studentInfo]);
-            for(let course in allStudentsObj[student][studentInfo]){
-                // numOfCourses++;
-                gradeTotal += studentInfo[course];
-                // console.log(studentInfo[course]);
-                // console.log(gradeTotal);
-                console.log(allStudentsObj[student][studentInfo][course]);
-                // console.log(typeof course);
-            }
-        }
+            if(studentInfo === 'courses'){
+                for(let grade in allStudentsObj[student][studentInfo]){
+                    gradeTotal += allStudentsObj[student][studentInfo][grade];
+                    numOfCourses++;
+                }
+            } 
+        } 
+        averageGrade = gradeTotal / numOfCourses;
+        // console.log(averageGradeObj[allStudentObj[student][name]]) 
+        // console.log(allStudentsObj[student][studentInfo]) 
+        averageGradeObj[studentName] = Math.round(averageGrade);
+        // console.log(averageGradeObj);
     }
+    return averageGradeObj;
 }
 
-averageGrade(studentGrades);
+console.log(averageGrade(studentGrades));
