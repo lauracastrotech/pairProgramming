@@ -33,14 +33,21 @@ const studentGrades = {
 };
 
 const averageGrade = (allStudentsObj) => {
+    console.log(78);
     for(let student in allStudentsObj){
         let numOfCourses = 0;
         let gradeTotal = 0;
-        for(let course in allStudentsObj.courses){
-            numOfCourses++;
-            gradeTotal += allStudentsObj[course];
-            console.log(gradeTotal);
-
+        // console.log(typeof allStudentsObj[student]);
+        for(let studentInfo in allStudentsObj[student]){
+            // console.log(student[studentInfo]);
+            for(let course in allStudentsObj[student][studentInfo]){
+                // numOfCourses++;
+                gradeTotal += studentInfo[course];
+                // console.log(studentInfo[course]);
+                // console.log(gradeTotal);
+                console.log(allStudentsObj[student][studentInfo][course]);
+                // console.log(typeof course);
+            }
         }
     }
 }
