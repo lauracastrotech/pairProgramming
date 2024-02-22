@@ -1,4 +1,5 @@
 # CodeOp FSPT27 Pair Programming Session
+
 Programmers: Orlane, Clio, Laura  ||  February 17, 2024
 
 ## Objects, Strings, and Arrays
